@@ -2,24 +2,18 @@ import React from "react";
 class DeleteRequest extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { postId: null };
+    this.state = { status: null };
   }
   componentDidMount() {
-    const requestOptions = {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ title: "React PUT Request Example" }),
-    };
-    fetch("https://jsonplaceholder.typicode.com/posts/1", requestOptions)
-      .then((response) => response.json())
-      .then((data) => this.setState({ articleId: data.id }));
+    fetch("https://jsonplaceholder.typicode.com/posts/1", { method: "DELETE" })
+      .then(() => this.setState({ status: "Delete successful" }));
   }
   render() {
-    const { postId } = this.state;
+    const { status } = this.state;
     return (
       <div className="card text-center m-3">
-        <h5 className="card-header">Simple PUT Request</h5>
-        <div className="card-body">Post Id: {postId}</div>
+        <h5 className="card-header">Simple DELETE Request</h5>
+        <div className="card-body">Status: {status}</div>
       </div>
     );
   }
