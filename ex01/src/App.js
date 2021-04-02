@@ -1,6 +1,6 @@
-import logo from "./logo.svg";
 import "./App.css";
-import "./GetRequest";
+import GetRequest from "./GetRequest";
+//import defaultExport from "./GetRequest";
 
 function App() {
   return (
