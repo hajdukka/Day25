@@ -1,10 +1,10 @@
 import "./App.css";
-import PostRequestSetHeaders from "./PostRequestSetHeaders";
+import PutRequest from "./PutRequest";
 
 function App() {
   return (
     <div className="App">
-      <PostRequestSetHeaders />
+      <PutRequest />
     </div>
   );
 }

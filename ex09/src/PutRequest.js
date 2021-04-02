@@ -1,32 +1,28 @@
 import React from "react";
-class PostRequestSetHeaders extends React.Component {
+class PutRequest extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { articleId: null };
+    this.state = { postId: null };
   }
   componentDidMount() {
     const requestOptions = {
-      method: 'POST',
-      headers: { 
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer my-token',
-        'My-Custom-Header': 'foobar'
-     },
-      body: JSON.stringify({ title: 'React POST Request Example' })
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title: "React PUT Request Example" }),
     };
-    fetch("https://jsonplaceholder.typicode.com/posts", requestOptions) 
-    .then(response => response.json())
-    .then(data => this.setState({ articleId: data.id }));
-}
+    fetch("https://jsonplaceholder.typicode.com/posts/1", requestOptions)
+      .then((response) => response.json())
+      .then((data) => this.setState({ articleId: data.id }));
+  }
   render() {
-    const { articleId } = this.state;
+    const { postId } = this.state;
     return (
       <div className="card text-center m-3">
-        <h5 className="card-header">POST Request with Set Headers</h5>
-        <div className="card-body">Article Id: {articleId}</div>
+        <h5 className="card-header">Simple PUT Request</h5>
+        <div className="card-body">Post Id: {postId}</div>
       </div>
     );
   }
 }
 
-export default PostRequestSetHeaders;
+export default PutRequest;
